@@ -1,8 +1,9 @@
 // Calculate average starting price and update message
 function updateAvgPrice() {
     let averagePrice = freelancers.reduce((sum, freelancer) => sum + freelancer.price, 0)/freelancers.length;
+    let shortAvgPrice = averagePrice.toFixed(2);
     const avgPriceMsg = document.querySelector(".average");
-    avgPriceMsg.textContent = `The average starting price is $${averagePrice}.`;
+    avgPriceMsg.textContent = `The average starting price is $${shortAvgPrice}.`;
 }
 
 // Render freelancers to table and update price average
@@ -45,9 +46,9 @@ function getNewFreelancer() {
     };
     
     freelancers.push(newFreelancer);
-    freelancers.map((freelancer) => render(freelancer));
+    render(newFreelancer);
 
-    if (freelancers.length > 50) {
+    if (freelancers.length > 20) {
         clearInterval(addFreelancerIntervalId);
     }
 }
@@ -186,5 +187,5 @@ const freelancers = [
 // Populate table with freelancers
 freelancers.map((freelancer) => render(freelancer));
 
-// Generate random freelancer at an irregular pace
-const addFreelancerIntervalId = setInterval(getNewFreelancer, 1000);
+// Generate random freelancer at regular pace
+const addFreelancerIntervalId = setInterval(getNewFreelancer, 1500);
