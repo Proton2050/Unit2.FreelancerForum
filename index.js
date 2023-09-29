@@ -37,7 +37,7 @@ function render(freelancer) {
 function getNewFreelancer() {
     const newName = names[Math.floor(Math.random() * names.length)];
     const newOccupation = occupations[Math.floor(Math.random() * occupations.length)];
-    const newPrice = Math.floor(Math.random() * 200);
+    const newPrice = Math.floor(Math.random() * 100);
     
     const newFreelancer = {
         name: newName,
@@ -167,25 +167,8 @@ const occupations = [
 "Web developer",
 ];
 
-// Seed an array of freelancer objects 
-const freelancers = [
-    {
-        name: "Alice",
-        occupation: "Writer",
-        price: 30
-    }, {
-        name: "Bob",
-        occupation: "Teacher",
-        price: 50
-    }, {
-        name: "Carol",
-        occupation: "Programmer",
-        price: 70
-    }
-];
-
-// Populate table with freelancers
-freelancers.map((freelancer) => render(freelancer));
+// Establish array of freelancers 
+const freelancers = [];
 
 // Generate random freelancer at regular pace
 const addFreelancerIntervalId = setInterval(getNewFreelancer, 1500);
